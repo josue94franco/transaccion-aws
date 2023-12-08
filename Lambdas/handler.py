@@ -1,18 +1,53 @@
-#import os
+import os
+import base64
 import boto3
 
+from resumen_trasacciones import generar_y_mostrar_resumen
+
 def handler(event, context):
+    resumen = generar_y_mostrar_resumen()
+    #Imprimir el valor del resumen para verificar
+    print("Resumen:", resumen)
+    
     ses_region = "us-east-1"
     sender_email = "http.joshua@gmail.com"
     recipient_email = "josue_franco_94@hotmail.com"
+    
+     # Extraer el nombre antes del símbolo '@'
+    email_receiver_name = recipient_email.split('@')[0]
+    # Set the subject and body of the email
+    subject = 'Resumen general de su cuenta y logotipo'
+    
+    # Ruta del archivo del logotipo
+    #logotipo = 'Bank.png'
+    logotipo = os.path.join(os.path.dirname(__file__), 'Bank.png')
+    # Leer el contenido del logotipo como bytes y codificarlo en base64
+    with open(logotipo, 'rb') as imagen:
+        contenido_base64 = base64.b64encode(imagen.read()).decode('utf-8')
 
     # Contenido del correo electrónico en formato HTML
-    email_body_html = """
+    email_body_html = f"""
+    <!DOCTYPE html>
     <html>
-        <body>
-            <h1>Hola, este es un correo electrónico de prueba</h1>
-            <p>Este es el contenido del cuerpo del correo electrónico en formato HTML.</p>
-        </body>
+    <head>
+        <style>
+            /* Estilo para la imagen */
+            img {{
+                width: 100px; /* Ajusta este valor según sea necesario */
+                height: auto; /* Esto asegura que la altura se ajuste automáticamente para mantener la proporción original */
+            
+            /* Estilo para el encabezado h1 */
+            h1 {{
+                font-size: 15px; /* Ajusta este valor según sea necesario */
+            }}
+            }}
+        </style>
+    </head>
+    <body>
+        <h1>Hola {email_receiver_name} - Resumen de cuenta y logotipo</h1>
+        <p>{resumen}</p>
+        <img src="data:image/png;base64, {contenido_base64}" alt="Logo">
+    </body>
     </html>
     """
 
