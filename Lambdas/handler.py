@@ -7,7 +7,7 @@ from resumen_trasacciones import generar_y_mostrar_resumen
 def handler(event, context):
     resumen = generar_y_mostrar_resumen()
     #Imprimir el valor del resumen para verificar
-    print("Resumen:", resumen)
+    #print("Resumen:", resumen)
     
     ses_region = "us-east-1"
     sender_email = "http.joshua@gmail.com"
@@ -24,29 +24,26 @@ def handler(event, context):
     # Leer el contenido del logotipo como bytes y codificarlo en base64
     with open(logotipo, 'rb') as imagen:
         contenido_base64 = base64.b64encode(imagen.read()).decode('utf-8')
+    
 
-    # Contenido del correo electrónico en formato HTML
+    # Contenido del correo electrónico
     email_body_html = f"""
     <!DOCTYPE html>
     <html>
     <head>
         <style>
-            /* Estilo para la imagen */
-            img {{
-                width: 100px; /* Ajusta este valor según sea necesario */
-                height: auto; /* Esto asegura que la altura se ajuste automáticamente para mantener la proporción original */
-            
+                        
             /* Estilo para el encabezado h1 */
             h1 {{
                 font-size: 15px; /* Ajusta este valor según sea necesario */
             }}
-            }}
+            
         </style>
     </head>
     <body>
         <h1>Hola {email_receiver_name} - Resumen de cuenta y logotipo</h1>
         <p>{resumen}</p>
-        <img src="data:image/png;base64, {contenido_base64}" alt="Logo">
+         <img src="data:image/png;base64, {contenido_base64}" alt="Logo" style="width: 100px; height: auto;">
     </body>
     </html>
     """
