@@ -59,7 +59,7 @@ Enjoy!
 
 # Email Transacción
 
-![Logo del banco](/Lambdas/Bank.png){:width="100px"}
+![Logo del banco](/Lambdas/Bank.png)
 
 Programa que permite procesar un archivo CSV que contiene las transacciones realizadas por un usuario tanto de débito como de crédito, el programa procesa el archivo leyendo el contenido, crea u resumen de las transacciones "crédito y débito", y envía el resumen por E-mail al usuario.
 Tecnología que se usó para esta aplicación:
