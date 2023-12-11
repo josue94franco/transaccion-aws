@@ -197,15 +197,16 @@ ahora en tu consola abres abres el servicio de lambda te debe aparecer toda la l
    "key1": "value1",
   "key2": "value2"
 }
+```
 
 Este es el resultado que nos deveria de dar.
 Response
-
+```json
 {
   "statusCode": 200,
   "body": "Correo electrónico enviado exitosamente!"
 }
-
+```
 Function Logs
 START RequestId: 3019abc4-ebae-40ec-8a35-679af5633c98 Version: $LATEST
 END RequestId: 3019abc4-ebae-40ec-8a35-679af5633c98
