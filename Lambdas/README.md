@@ -1,65 +1,5 @@
-
-# Bienvenido a tu proyecto CDK Python!
-
-This is a blank project for CDK development with Python.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
-
-To manually create a virtualenv on MacOS and Linux:
-
-```
-$ python -m venv .venv
-```
-
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
-
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
-```
-
-Once the virtualenv is activated, you can install the required dependencies.
-
-```
-$ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
-```
-
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
-
-## Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!
-
 # Email Transacción
 
-![Logo del banco](/Lambdas/Bank.png)
 
 Programa que permite procesar un archivo CSV que contiene las transacciones realizadas por un usuario tanto de débito como de crédito, el programa procesa el archivo leyendo el contenido, crea u resumen de las transacciones "crédito y débito", y envía el resumen por E-mail al usuario.
 Tecnología que se usó para esta aplicación:
@@ -191,22 +131,18 @@ cdk deploy
 ```
 
 ahora en tu consola abres abres el servicio de lambda te debe aparecer toda la logica del programa, para ya poder empezar a hacer pruebas es necesario crear un test en formato de json simple para luego correr ese test, 
-
-```json
 {
-   "key1": "value1",
+  "key1": "value1",
   "key2": "value2"
 }
-```
 
 Este es el resultado que nos deveria de dar.
 Response
-```json
 {
   "statusCode": 200,
   "body": "Correo electrónico enviado exitosamente!"
 }
-```
+
 Function Logs
 START RequestId: 3019abc4-ebae-40ec-8a35-679af5633c98 Version: $LATEST
 END RequestId: 3019abc4-ebae-40ec-8a35-679af5633c98
