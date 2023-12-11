@@ -201,7 +201,6 @@ ahora en tu consola abres abres el servicio de lambda te debe aparecer toda la l
 Este es el resultado que nos deveria de dar.
 Response
 
-```json
 {
   "statusCode": 200,
   "body": "Correo electrónico enviado exitosamente!"
