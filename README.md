@@ -191,13 +191,17 @@ cdk deploy
 ```
 
 ahora en tu consola abres abres el servicio de lambda te debe aparecer toda la logica del programa, para ya poder empezar a hacer pruebas es necesario crear un test en formato de json simple para luego correr ese test, 
+
+```json
 {
-  "key1": "value1",
+   "key1": "value1",
   "key2": "value2"
 }
 
 Este es el resultado que nos deveria de dar.
 Response
+
+```json
 {
   "statusCode": 200,
   "body": "Correo electrónico enviado exitosamente!"
