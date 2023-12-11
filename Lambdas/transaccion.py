@@ -28,9 +28,13 @@ class ProcesadorCSV:
         with open(self.archivo_csv, newline='') as archivo:
             lector_csv = csv.DictReader(archivo)
             for fila in lector_csv:
-                fecha = fila['Date']
-                monto = float(fila['Transaccion'])
-                self.transacciones.append((fecha, monto))
+                numero_mes = fila['Date'].split('/')[0]  
+                nombre_mes = date.get(numero_mes, "Mes no válido")
+                
+                if nombre_mes != "Mes no válido":
+                    fecha = f"{nombre_mes} {fila['Date'].split('/')[1]}"
+                    monto = float(fila['Transaccion'])
+                    self.transacciones.append((fecha, monto))
 
     # Calcula y devuelve el saldo total de todas las transacciones
     def procesar_transacciones(self):
